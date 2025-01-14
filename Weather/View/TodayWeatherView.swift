@@ -24,11 +24,19 @@ struct TodayWeatherView: View {
                 
                 Spacer()
                 
-                NavigationLink(WeatherForecast.forecastLinkTitle) {
-                    ForecastView(viewModel: viewModel)
-                }
+                Button(action: {}, label: {
+                    NavigationLink(WeatherForecast.forecastLinkTitle) {
+                        ForecastView(viewModel: viewModel)
+                    }
+                })
+                .padding(EdgeInsets(top: 10, leading: 30, bottom: 10, trailing: 30))
+                .background(Color(red: 0.0, green: 0.5, blue: 0.5))
+                .foregroundStyle(.white)
+                .clipShape(Capsule())
+                
                 Spacer()
-            } else if let error = self.viewModel.error {
+                
+            } else if self.viewModel.error != nil {
                 ErrorView(viewModel: viewModel)
             }
         }
