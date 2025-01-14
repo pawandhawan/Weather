@@ -52,11 +52,16 @@ Weather provides the current weather forecast for any city and includes a 5-day 
 6. Utility - Contains constant file and some utility functions
 
 
+## Architectural Design Pattern - MVVM
+
+1. The MVVM pattern separates the application's logic into three components:
+
+   1. Model: Represents the data and business logic of the app.
+   2. View: Displays the UI, and it is declaratively built using SwiftUI. It observes the ViewModel for changes.
+   3. ViewModel: Acts as a bridge between the Model and View, managing the app's state and preparing data for the View.
+3. SwiftUI uses bindings (@State, @Binding, and @Published) to enable automatic updates between the View and ViewModel. Changes in the ViewModel's properties are reflected in the View in real time.
+4. The declarative nature of SwiftUI combined with MVVM ensures that UI updates happen automatically whenever the state in the ViewModel changes, reducing the need for manual updates and minimizing boilerplate code.
+5. By isolating the business logic in the ViewModel, the code becomes more testable. The ViewModel can be tested independently of the UI, ensuring a more robust and maintainable codebase.
+6. The MVVM pattern promotes modularity and code reuse. The ViewModel can be reused across multiple Views, and Views remain lightweight as they only focus on displaying data.
 
 
-
-
-
-
- 
-# Weather
