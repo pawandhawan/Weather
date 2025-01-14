@@ -11,9 +11,13 @@ import Alamofire
 class WeatherViewModel: ObservableObject {
     @Published var weather: Weather?
     @Published var error: CustomError?
+    @Published var suggestions: [String] = []
     var weatherService = WeatherAPIService(session: Session())
     private let weatherInfoStorageManager: WeatherInfoStorageManager
 
+    let delay: TimeInterval = 0.1
+    private var task: Task<Void, Never>?
+    
     init(weatherService:WeatherAPIService = WeatherAPIService(session: Session()), weatherInfoStorageManager: WeatherInfoStorageManager = WeatherInfoStorage()) {
         self.weatherService = weatherService
         self.weatherInfoStorageManager = weatherInfoStorageManager
@@ -57,5 +61,45 @@ class WeatherViewModel: ObservableObject {
                 }
             }
         }
+    }
+    
+    func autocomplete(_ text: String) {
+        guard !text.isEmpty else {
+            suggestions = []
+            task?.cancel()
+            return
+        }
+        task?.cancel()
+        task = Task {
+            await Task.sleep(UInt64(delay * 1_000_000_000.0))
+            guard !Task.isCancelled else {
+                return
+            }
+            getCityList(forCity: text)
+        }
+    }
+    
+    func getCityList(forCity city: String) {
+        weatherService.fetchCityList(forCity: city, completion: { (cityList, error) in
+            DispatchQueue.main.async {
+                if let cityList = cityList {
+                    if self.isSingleSuggestion(cityList, equalTo: city) {
+                        self.suggestions = []
+                    } else {
+                        self.suggestions = cityList
+                    }
+                } else if error != nil {
+                    self.suggestions = []
+                }
+            }
+        })
+    }
+    
+    private func isSingleSuggestion(_ suggestions: [String], equalTo text: String) -> Bool {
+        guard let suggestion = suggestions.first, suggestions.count == 1 else {
+            return false
+        }
+
+        return suggestion.lowercased() == text.lowercased()
     }
 }

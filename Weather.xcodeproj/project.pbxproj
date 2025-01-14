@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		06446D6623DFB80880E9CFE6 /* Pods_WeatherTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1F03AC71876BA8A6580574F /* Pods_WeatherTests.framework */; };
+		1F79E2FE2D36D40F00944C2F /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F79E2FD2D36D40F00944C2F /* City.swift */; };
 		35BF27468C47FAABE4BEB4C8 /* Pods_Weather_WeatherUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F11CFD0D91C7D4F8FD8CB9E /* Pods_Weather_WeatherUITests.framework */; };
 		7CB9DE683A115D9233B01349 /* Pods_Weather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 236C0ACD4DB461D985F37754 /* Pods_Weather.framework */; };
 		8434B8122C9AED51009AAEF8 /* CustomError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8434B8112C9AED51009AAEF8 /* CustomError.swift */; };
@@ -60,6 +61,8 @@
 
 /* Begin PBXFileReference section */
 		130E73CDEB99157A88749516 /* Pods-WeatherForecastTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherForecastTests.debug.xcconfig"; path = "Target Support Files/Pods-WeatherForecastTests/Pods-WeatherForecastTests.debug.xcconfig"; sourceTree = "<group>"; };
+		1F79E2FC2D36A30A00944C2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		1F79E2FD2D36D40F00944C2F /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		236C0ACD4DB461D985F37754 /* Pods_Weather.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Weather.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		33C131EA62F8A0ADB528A993 /* Pods-WeatherForecast-WeatherForecastUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherForecast-WeatherForecastUITests.debug.xcconfig"; path = "Target Support Files/Pods-WeatherForecast-WeatherForecastUITests/Pods-WeatherForecast-WeatherForecastUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		40A1519BB67C4A62C8F53ED7 /* Pods-WeatherForecast-WeatherForecastUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherForecast-WeatherForecastUITests.release.xcconfig"; path = "Target Support Files/Pods-WeatherForecast-WeatherForecastUITests/Pods-WeatherForecast-WeatherForecastUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -190,6 +193,7 @@
 		84508D0B2C9A9CA900716341 /* Weather */ = {
 			isa = PBXGroup;
 			children = (
+				1F79E2FC2D36A30A00944C2F /* Info.plist */,
 				84508D0C2C9A9CA900716341 /* WeatherApp.swift */,
 				845C48D52C9C2002000A3EC7 /* Storage */,
 				84508D542C9AD70000716341 /* Utility */,
@@ -235,6 +239,7 @@
 		84508D3C2C9AAE1400716341 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				1F79E2FD2D36D40F00944C2F /* City.swift */,
 				84508D3D2C9AAE3400716341 /* Weather.swift */,
 				84508D3F2C9AAE4F00716341 /* Condition.swift */,
 				84508D412C9AAE5B00716341 /* Current.swift */,
@@ -551,6 +556,7 @@
 				84508D532C9AD6A700716341 /* ForecastRowView.swift in Sources */,
 				8434B8122C9AED51009AAEF8 /* CustomError.swift in Sources */,
 				84508D4F2C9AC15100716341 /* ForecastView.swift in Sources */,
+				1F79E2FE2D36D40F00944C2F /* City.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -722,6 +728,7 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Weather/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -752,6 +759,7 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Weather/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

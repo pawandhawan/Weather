@@ -17,11 +17,20 @@ class Utility {
     }
 
     func urlBuilder(city: String) -> URL? {
-        var url = URL(string: WeatherForecast.baseUrl)
+        var url = URL(string: WeatherForecast.baseUrl.appending(WeatherForecast.forecast))
         url?.append(queryItems: [
             URLQueryItem(name: WeatherForecast.queryParamApiKey, value: WeatherForecast.apiKey),
             URLQueryItem(name: WeatherForecast.queryParamCityKey, value: city),
             URLQueryItem(name: WeatherForecast.queryParamForecastKey, value: WeatherForecast.forecastDays)
+        ])
+        return url
+    }
+    
+    func citySearchUrlBuilder(city: String) -> URL? {
+        var url = URL(string: WeatherForecast.baseUrl.appending(WeatherForecast.search))
+        url?.append(queryItems: [
+            URLQueryItem(name: WeatherForecast.queryParamApiKey, value: WeatherForecast.apiKey),
+            URLQueryItem(name: WeatherForecast.queryParamCityKey, value: city)
         ])
         return url
     }

@@ -9,11 +9,13 @@ import Foundation
 
 struct WeatherForecast {
     static let apiKey = "afe6c01210214709882110159251301"
-    static let baseUrl = "https://api.weatherapi.com/v1/forecast.json"
+    static let baseUrl = "https://api.weatherapi.com/v1/"
     static let queryParamApiKey = "key"
     static let queryParamCityKey = "q"
     static let queryParamForecastKey = "days"
     static let forecastDays = "5"
+    static let forecast = "forecast.json"
+    static let search = "search.json"
     
     static let textFieldPlaceholder = "Enter City Name"
     static let searchButtonTitle = "Search"
